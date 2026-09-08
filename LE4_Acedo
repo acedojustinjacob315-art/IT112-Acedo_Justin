@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    char name[] = "Justin Jacob Acedo";
+    char section[] = "BSIT - 1R13";
+
+    int grade1, grade2, grade3, grade4;
+    float average;
+
+    printf("Enter Complete Name: %s\n", name);
+    printf("Enter Section: %s\n", section);
+
+    // Generate random grades from 75 to 100
+    srand(time(NULL));
+
+    grade1 = rand() % 26 + 75;
+    grade2 = rand() % 26 + 75;
+    grade3 = rand() % 26 + 75;
+    grade4 = rand() % 26 + 75;
+
+    // Calculate average
+    average = (grade1 + grade2 + grade3 + grade4) / 4.0;
+
+    printf("\nEnter 1st Quarter Grade: %d\n", grade1);
+    printf("Enter 2nd Quarter Grade: %d\n", grade2);
+    printf("Enter 3rd Quarter Grade: %d\n", grade3);
+    printf("Enter 4th Quarter Grade: %d\n", grade4);
+
+    printf("\nStudent: %s\n", name);
+    printf("Section: %s\n", section);
+    printf("General Average: %.2f\n", average);
+
+    // Remarks
+    if (average >= 90) {
+        printf("Remarks: Outstanding\n");
+    }
+    else if (average >= 85) {
+        printf("Remarks: Very Satisfactory\n");
+    }
+    else if (average >= 80) {
+        printf("Remarks: Satisfactory\n");
+    }
+    else if (average >= 75) {
+        printf("Remarks: Fair\n");
+    }
+    else {
+        printf("Remarks: Failed\n");
+    }
+
+    return 0;
+}
