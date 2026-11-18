@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    char id[50];
+    char name[100];
+    char section[50];
+};
+
+int main() {
+    FILE *file;
+    struct Student s;
+    int choice;
+
+    file = fopen("student_records.txt", "a");
+    if (file == NULL) {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    do {
+        // Correct labels so the user knows what to enter
+        printf("\n2026301957: ");
+        scanf(" %[^\n]", s.id); 
+
+        printf("Justin Jacob Acedo: ");
+        scanf(" %[^\n]", s.name);
+
+        printf("BSIT-1R13: ");
+        scanf(" %[^\n]", s.section);
+
+        fprintf(file, "ID: %s | Name: %s | Section: %s\n", s.id, s.name, s.section);
+
+        printf("\nDo you want to add another record?\n");
+        printf("Enter 1 to add another or 0 to stop: ");
+        scanf("%d", &choice);
+
+    } while (choice == 1);
+
+    fclose(file);
+    printf("\nStudent records successfully saved to student_records.txt\n");
+
+    return 0;
+}
